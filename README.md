@@ -27,7 +27,7 @@ tsd.meta.cache.max_size=100000
 ```
 tsd.meta.cache.ttl_seconds=3600
 ```
-* To enable stats collection from the plugin we need a little config fudging:
+* To enable stats collection from the plugin we need a little config fudging due to a bug in OpenTSDB (unless we're running a version containing this [fix](https://github.com/OpenTSDB/opentsdb/pull/1649) - expected in 2.4.1):
 ```
 tsd.startup.enable=true
 tsd.startup.plugin=uk.co.gresearch.opentsdb.RateLimitedTsuidTrackingStatsCollector
