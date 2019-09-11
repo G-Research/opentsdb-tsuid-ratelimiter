@@ -88,6 +88,10 @@ public class RateLimitedTsuidTracking extends MetaDataCache {
    * @param collector The collector used for emitting statistics
    */
   public static void collectStatsFudge(final StatsCollector collector) {
+    // Can happen if someone configures the hacky startup plugin without the meta cache plugin
+    if (cache == null) {
+      return;
+    }
     long size = cache.size();
     collector.record("meta.cache.size", size);
 
